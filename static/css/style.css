@@ -55,16 +55,10 @@ body {
     margin-bottom: 35px;
 }
 
-.logo-icon {
-    width: 42px;
-    height: 42px;
-    background: #7c5cff;
-    color: white;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 20px rgba(124,92,255,0.7);
+.logo-login {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
 }
 
 .logo-box h2 {

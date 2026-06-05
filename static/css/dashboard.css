@@ -15,8 +15,22 @@ ESTILOS GLOBALES Y BASE
    Define la fuente predeterminada y color de fondo general */
 body {
     font-family: Arial, sans-serif;
-    background: #f4f7fb;
+    background:fff;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -66,6 +80,10 @@ ESTILOS DE LA BARRA LATERAL (SIDEBAR)
 .main {
     margin-left: 250px;
     padding: 30px;
+    transition: margin-left 0.3s ease;
+}
+.main.expanded {
+    margin-left: 100px;
 }
 
 /* Título principal de la página */
@@ -282,3 +300,129 @@ ESTILOS DE GRÁFICOS (CHARTS)
 .logout-btn:hover {
     background: #441e1ec2 !important;
 } 
+
+.sidebar {
+    width: 230px;
+    height: 100vh;
+    background: linear-gradient(180deg, #34337d, #172554);
+    color: white;
+    position: fixed;
+    padding: 22px 14px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 35px;
+    padding: 0 8px;
+}
+
+.sidebar-logo img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.sidebar-logo span {
+    font-size: 17px;
+    font-weight: bold;
+    color: #e5e7ff;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #c7c9e8;
+    text-decoration: none;
+    margin: 5px 0;
+    padding: 13px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.sidebar a:hover {
+    background: rgba(255,255,255,0.12);
+    color: white;
+}
+
+.sidebar .icon {
+    width: 22px;
+    font-size: 20px;
+    color: #b7b9e6;
+    text-align: center;
+}
+
+.logout-btn {
+    margin-top: auto;
+    background: rgba(163, 60, 47, 0.45);
+    color: white !important;
+    text-align: center;
+}
+
+.logout-btn:hover {
+    background: #b91c1c !important;
+}
+
+
+
+.menu-toggle {
+    width: 42px;
+    height: 42px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+
+    margin-bottom: 25px;
+}
+
+.sidebar {
+    transition: all 0.3s ease;
+}
+
+.main {
+    transition: all 0.3s ease;
+}
+
+
+/*Estado minimizado*/
+.sidebar.collapsed {
+    width: 80px;
+    padding: 20px 10px;
+}
+
+.sidebar.collapsed .menu-text,
+.sidebar.collapsed .sidebar-logo span {
+    display: none;
+}
+
+.sidebar.collapsed a {
+    justify-content: center;
+    padding: 13px 0;
+}
+
+.sidebar.collapsed .icon {
+    font-size: 22px;
+    width: auto;
+}
+
+.sidebar.collapsed .logout-btn {
+    left: 10px;
+    right: 10px;
+    width: auto;
+}
+
+
+

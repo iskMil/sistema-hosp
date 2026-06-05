@@ -7,12 +7,42 @@
 <body>
 
 <div class="sidebar">
-    <h2>sistemaHosp</h2>
-    <a href="/dashboard">Dashboard</a>
-    <a href="/indicadores">Indicadores</a>
-    <a href="/epidemiologia">Epidemiológico</a>
-    <a href="/personal">Personal</a>
-    <a href="/importacion">Importación</a>
+    <div class="menu-toggle" onclick="toggleSidebar()">
+    ☰
+</div>
+    <div class="sidebar-logo">
+        <img src="/static/img/logo.png" alt="Logo">
+        <span>sistemaHosp</span>
+    </div>
+    <a href="/dashboard">
+    <span class="icon">⌂</span>
+    <span class="menu-text">Inicio</span>
+</a>
+
+<a href="/indicadores">
+    <span class="icon">⧟</span>
+    <span class="menu-text">Indicadores</span>
+</a>
+
+<a href="/epidemiologia">
+    <span class="icon">☣</span>
+    <span class="menu-text">Epidemiológico</span>
+</a>
+
+<a href="/personal">
+    <span class="icon">♙</span>
+    <span class="menu-text">Desempeño</span>
+</a>
+
+<a href="/importacion">
+    <span class="icon">⇪</span>
+    <span class="menu-text">Importación</span>
+</a>
+
+<a href="/logout" class="logout-btn">
+    <span class="icon">⇥</span>
+    <span class="menu-text">Cerrar sesión</span>
+</a>
 </div>
 
 <div class="main">
@@ -92,6 +122,6 @@
     </table>
 
 </div>
-
+<script src="/static/js/app.js"></script>
 </body>
 </html>
