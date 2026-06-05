@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Módulo Epidemiológico</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>sistemaHosp</h2>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/indicadores">Indicadores</a>
+    <a href="/epidemiologia">Epidemiológico</a>
+    <a href="/personal">Personal</a>
+    <a href="/importacion">Importación</a>
+</div>
+
+<div class="main">
+    <h1>Módulo Epidemiológico</h1>
+
+    <div class="cards">
+        {% for item in resumen %}
+        <div class="card">
+            <h3>{{ item.enfermedad }}</h3>
+            <p>{{ item.total_casos }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h2 class="section-title">Listado de casos registrados</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Enfermedad</th>
+                <th>Cantidad de casos</th>
+                <th>Área</th>
+                <th>Fecha</th>
+                <th>Observación</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for caso in casos %}
+            <tr>
+                <td>{{ caso.enfermedad }}</td>
+                <td>{{ caso.cantidad_casos }}</td>
+                <td>{{ caso.area }}</td>
+                <td>{{ caso.fecha_registro }}</td>
+                <td>{{ caso.observacion }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

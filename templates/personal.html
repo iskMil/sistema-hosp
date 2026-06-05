@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desempeño del Personal</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>sistemaHosp</h2>
+
+    <a href="/dashboard">Dashboard</a>
+    <a href="/indicadores">Indicadores</a>
+    <a href="/epidemiologia">Epidemiológico</a>
+    <a href="/personal">Personal</a>
+    <a href="/importacion">Importación</a>
+</div>
+
+<div class="main">
+
+    <h1>Desempeño del Personal</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Personal Activo</h3>
+            <p>{{ personal_activo }}</p>
+        </div>
+
+    </div>
+
+    <h2 class="section-title">
+        Evaluación del Personal
+    </h2>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cargo</th>
+                <th>Área</th>
+                <th>Fecha</th>
+                <th>Asistencia</th>
+                <th>Atenciones</th>
+                <th>Cumplimiento</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for empleado in personal %}
+
+            <tr>
+                <td>{{ empleado.nombres }}</td>
+                <td>{{ empleado.cargo }}</td>
+                <td>{{ empleado.area }}</td>
+                <td>{{ empleado.fecha }}</td>
+                <td>{{ empleado.asistencia }}</td>
+                <td>{{ empleado.atenciones_realizadas }}</td>
+                <td>{{ empleado.cumplimiento }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+    <h2 class="section-title">Gráfico de Atenciones</h2>
+
+<div class="charts-container">
+    <div class="chart-card">
+        <h3>Atenciones realizadas por personal</h3>
+        <canvas id="graficoPersonal"></canvas>
+    </div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const nombresPersonal = JSON.parse('{{ nombres_personal | tojson | safe }}');
+    const atencionesPersonal = JSON.parse('{{ atenciones_personal | tojson | safe }}');
+</script>
+
+<script src="/static/js/personal.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Importación de Datos</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>sistemaHosp</h2>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/indicadores">Indicadores</a>
+    <a href="/epidemiologia">Epidemiológico</a>
+    <a href="/personal">Personal</a>
+    <a href="/importacion">Importación</a>
+</div>
+
+<div class="main">
+    <h1>Importación de Datos</h1>
+
+    <div class="upload-card">
+        <h2>Cargar Archivo</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+            <div class="upload-box">
+                <div class="upload-icon">⬆</div>
+                <h3>Arrastra tu archivo aquí</h3>
+                <p>Excel (.xlsx) o CSV (.csv)</p>
+
+                <input type="file" name="archivo" accept=".xlsx,.csv" required>
+            </div>
+
+            <button class="btn-importar" type="submit">
+                Importar Datos
+            </button>
+        </form>
+    </div>
+
+    {% if datos %}
+    <div class="table-container">
+        <h2 class="section-title">Datos importados</h2>
+
+        <input 
+            type="text" 
+            id="buscador" 
+            placeholder="Buscar información..." 
+            onkeyup="filtrarTabla()"
+            class="search-input"
+        >
+
+        <table id="tablaDatos">
+            <thead>
+                <tr>
+                    {% for columna in columnas %}
+                    <th>{{ columna }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for fila in datos %}
+                <tr>
+                    {% for dato in fila %}
+                    <td>{{ dato }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+function filtrarTabla() {
+    let input = document.getElementById("buscador");
+    let filtro = input.value.toLowerCase();
+    let tabla = document.getElementById("tablaDatos");
+    let filas = tabla.getElementsByTagName("tr");
+
+    for (let i = 1; i < filas.length; i++) {
+        let textoFila = filas[i].textContent.toLowerCase();
+
+        if (textoFila.includes(filtro)) {
+            filas[i].style.display = "";
+        } else {
+            filas[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>

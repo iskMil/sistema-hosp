@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Sistema Hospitalario</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="login-bg"></div>
+
+<div class="login-container">
+
+    <div class="login-form">
+
+        <div class="logo-box">
+            <div class="logo-icon">⚠</div>
+            <h2>SISTEMAHOSP</h2>
+        </div>
+
+        <h1>Bienvenido</h1>
+        <p>Ingresa tus credenciales para continuar</p>
+
+        <form action="/validar_login" method="POST">
+
+            <div class="input-group">
+
+                <label>Usuario</label>
+
+                <input
+                    type="text"
+                    name="usuario"
+                    placeholder="Ingrese su usuario"
+                    value="{{ usuario if usuario else '' }}"
+                >
+
+                {% if error_usuario %}
+                <div class="mensaje-error">
+                    {{ error_usuario }}
+                </div>
+                {% endif %}
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Contraseña</label>
+
+                <input
+                    type="password"
+                    name="contrasena"
+                    placeholder="Ingrese su contraseña"
+                    value="{{ contrasena if contrasena else '' }}"
+                >
+
+                {% if error_contrasena %}
+                <div class="mensaje-error">
+                    {{ error_contrasena }}
+                </div>
+                {% endif %}
+
+            </div>
+
+            <button class="btn-login" type="submit">
+                Ingresar
+            </button>
+
+        </form>
+
+        {% if error %}
+        <div class="mensaje-error">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        {% if success %}
+    <div class="mensaje-success">
+    {{ success }}
+    </div>
+
+    {% if success == '¡Acceso concedido! Redirigiendo...' %}
+    <script>
+    setTimeout(function() {
+    window.location.href = "/dashboard";
+    }, 2000);
+    </script>
+    {% endif %}
+
+{% endif %}
+
+    </div>
+
+</div>
+
+<script src="/static/js/app.js"></script>
+
+</body>
+</html>

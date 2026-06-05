@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Hospitalario</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>sistemaHosp</h2>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/indicadores">Indicadores</a>
+    <a href="/epidemiologia">Epidemiológico</a>
+    <a href="/personal">Personal</a>
+    <a href="/importacion">Importación</a>
+    <a href="/logout" class="logout-btn">Cerrar sesión</a>
+</div>
+
+<div class="main">
+    <h1>Panel Principal</h1>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Camas disponibles</h3>
+            <p>{{ camas_disponibles }}</p>
+        </div>
+        <div class="card">
+            <h3>Camas ocupadas</h3>
+            <p>{{ camas_ocupadas }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Pacientes hospitalizados</h3>
+            <p>{{ pacientes_hospitalizados }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Altas médicas</h3>
+            <p>{{ altas_medicas }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Casos de dengue</h3>
+            <p>{{ casos_dengue }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Casos de anemia</h3>
+            <p>{{ casos_anemia }}</p>
+        </div>
+    </div>
+
+
+    <div class="charts-container">
+
+    <div class="chart-card">
+        <h3>Estado de camas</h3>
+        <canvas id="graficoCamas"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>Casos epidemiológicos</h3>
+        <canvas id="graficoEpidemiologia"></canvas>
+    </div>
+    
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const camasDisponibles = Number("{{ camas_disponibles }}");
+    const camasOcupadas = Number("{{ camas_ocupadas }}");
+    const casosDengue = Number("{{ casos_dengue }}");
+    const casosAnemia = Number("{{ casos_anemia }}");
+</script>
+
+<script src="/static/js/dashboard.js"></script>
+</body>
+</html>

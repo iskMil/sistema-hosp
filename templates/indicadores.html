@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Indicadores Hospitalarios</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>sistemaHosp</h2>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/indicadores">Indicadores</a>
+    <a href="/epidemiologia">Epidemiológico</a>
+    <a href="/personal">Personal</a>
+    <a href="/importacion">Importación</a>
+</div>
+
+<div class="main">
+    <h1>Indicadores Hospitalarios</h1>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Camas disponibles</h3>
+            <p>{{ camas_disponibles }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Camas ocupadas</h3>
+            <p>{{ camas_ocupadas }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Pacientes hospitalizados</h3>
+            <p>{{ pacientes_hospitalizados }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Altas médicas</h3>
+            <p>{{ altas_medicas }}</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Listado de Camas</h2>
+    
+
+    <table>
+        <thead>
+            <tr>
+                <th>Código cama</th>
+                <th>Área</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cama in camas %}
+            <tr>
+                <td>{{ cama.codigo_cama }}</td>
+                <td>{{ cama.area }}</td>
+                <td>{{ cama.estado }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2 class="section-title">Listado de Pacientes</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombres</th>
+                <th>DNI</th>
+                <th>Edad</th>
+                <th>Sexo</th>
+                <th>Diagnóstico</th>
+                <th>Fecha ingreso</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paciente in pacientes %}
+            <tr>
+                <td>{{ paciente.nombres }}</td>
+                <td>{{ paciente.dni }}</td>
+                <td>{{ paciente.edad }}</td>
+                <td>{{ paciente.sexo }}</td>
+                <td>{{ paciente.diagnostico }}</td>
+                <td>{{ paciente.fecha_ingreso }}</td>
+                <td>{{ paciente.estado }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

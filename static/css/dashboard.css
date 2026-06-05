@@ -1,0 +1,284 @@
+
+/* ========================================
+ESTILOS GLOBALES Y BASE
+   ======================================== */
+
+/* Reset global: Elimina márgenes y padding por defecto,
+   y establece box-sizing para mejor control de dimensiones */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del cuerpo de la página:
+   Define la fuente predeterminada y color de fondo general */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+}
+
+
+
+/* ========================================
+ESTILOS DE LA BARRA LATERAL (SIDEBAR)
+   ======================================== */
+
+/* Contenedor principal de la barra lateral:
+   Barra fija a la izquierda con navegación principal */
+.sidebar {
+    width: 230px;
+    height: 100vh;
+    background: #0b2347;
+    color: white;
+    position: fixed;
+    padding: 20px;
+}
+
+/* Título principal en el sidebar */
+.sidebar h2 {
+    margin-bottom: 30px;
+}
+
+/* Enlaces de navegación en el sidebar:
+   Estilo para los botones de navegación */
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Efecto hover de los enlaces: Cambia color al pasar el ratón */
+.sidebar a:hover {
+    background: #1565c0;
+}
+
+
+
+/* ========================================
+ÁREA PRINCIPAL DE CONTENIDO
+   ======================================== */
+
+/* Contenedor principal: Ajusta el margen izquierdo para dejar espacio al sidebar */
+.main {
+    margin-left: 250px;
+    padding: 30px;
+}
+
+/* Título principal de la página */
+h1 {
+    margin-bottom: 25px;
+    color: #0b2347;
+}
+
+
+/* ========================================
+ESTILOS DE TARJETAS (CARDS)
+   ======================================== */
+
+/* Contenedor de tarjetas: Grid de 3 columnas para mostrar métricas principales */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+/* Estilo individual de cada tarjeta: Fondo blanco con sombra */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Título de la tarjeta */
+.card h3 {
+    color: #555;
+    font-size: 16px;
+}
+
+/* Número o valor principal en la tarjeta */
+.card p {
+    font-size: 38px;
+    font-weight: bold;
+    color: #1565c0;
+    margin-top: 15px;
+}
+
+
+
+/* ========================================
+ESTILOS DE SECCIONES Y TABLAS
+   ======================================== */
+
+/* Títulos de secciones secundarias: Separa visualmente diferentes áreas de contenido */
+.section-title {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    color: #0b2347;
+}
+
+/* Tabla general: Contenedor para listados de datos */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+/* Encabezados de tabla: Fondo oscuro y texto blanco */
+th {
+    background: #0b2347;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Celdas de tabla: Espaciado y bordes */
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Efecto hover en filas: Resalta la fila al pasar el ratón */
+tr:hover {
+    background: #f1f5ff;
+}
+
+
+/* ========================================
+ESTILOS DE CARGA DE ARCHIVOS (UPLOAD)
+   ======================================== */
+
+/* Tarjeta de carga: Contenedor para el formulario de importación de archivos */
+.upload-card {
+    background: #1f2d44;
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 520px;
+    margin-bottom: 30px;
+}
+
+/* Zona de carga: Área para arrastrar y soltar archivos */
+.upload-box {
+    border: 2px dashed #5d6b85;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Icono de carga */
+.upload-icon {
+    font-size: 45px;
+    color: #91a4c7;
+}
+
+/* Título en la zona de carga */
+.upload-box h3 {
+    margin-top: 15px;
+}
+
+/* Texto descriptivo en la zona de carga */
+.upload-box p {
+    color: #9fb0cc;
+    margin: 10px 0;
+}
+
+/* Input file en la zona de carga */
+.upload-box input {
+    margin-top: 15px;
+    color: white;
+}
+
+/* Botón de importación: Botón principal para enviar archivos */
+.btn-importar {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #5b5ff0;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Efecto hover del botón importar */
+.btn-importar:hover {
+    background: #464bd8;
+}
+
+/* Contenedor de tabla de importación */
+.table-container {
+    margin-top: 30px;
+}
+
+/* Input de búsqueda: Campo para filtrar datos en las tablas */
+.search-input {
+    width: 300px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* ========================================
+ESTILOS DE GRÁFICOS (CHARTS)
+   ======================================== */
+
+/* Contenedor de gráficos: Grid de 2 columnas para mostrar múltiples gráficos */
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 35px;
+}
+
+/* Tarjeta individual de gráfico: Contenedor blanco con sombra */
+.chart-card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Título del gráfico */
+.chart-card h3 {
+    margin-bottom: 20px;
+    color: #0b2347;
+}
+
+/* Canvas para los gráficos: Asegura que los gráficos se rendericen correctamente */
+.chart-card canvas {
+    width: 100% !important;
+    height: 260px !important;
+}
+
+
+
+
+
+
+.logout-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+
+    background: #a33c2f86;
+    color: white !important;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.logout-btn:hover {
+    background: #441e1ec2 !important;
+} 
