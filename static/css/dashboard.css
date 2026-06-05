@@ -21,19 +21,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ========================================
 ESTILOS DE LA BARRA LATERAL (SIDEBAR)
    ======================================== */
@@ -176,7 +163,7 @@ ESTILOS DE CARGA DE ARCHIVOS (UPLOAD)
 
 /* Tarjeta de carga: Contenedor para el formulario de importación de archivos */
 .upload-card {
-    background: #1f2d44;
+    background: #322075ad;
     color: white;
     padding: 25px;
     border-radius: 15px;
