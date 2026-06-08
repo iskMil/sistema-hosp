@@ -1,30 +1,64 @@
 from config.database import get_connection
 
 def obtener_indicadores():
+
     conexion = get_connection()
     cursor = conexion.cursor()
 
-    cursor.execute("SELECT COUNT(*) FROM Camas WHERE estado = 'Disponible'")
+    # Camas disponibles
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM Camas
+        WHERE IdEstadoCama = 1
+    """)
     camas_disponibles = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(*) FROM Camas WHERE estado = 'Ocupada'")
+    # Camas ocupadas
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM Camas
+        WHERE IdEstadoCama = 3
+    """)
     camas_ocupadas = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(*) FROM Pacientes WHERE estado = 'Hospitalizado'")
+    # Pacientes hospitalizados
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM Camas
+        WHERE IdPaciente IS NOT NULL
+    """)
     pacientes_hospitalizados = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(*) FROM AltasMedicas")
+    # Altas médicas (temporal)
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM Atenciones
+        WHERE FechaEgreso IS NOT NULL
+    """)
     altas_medicas = cursor.fetchone()[0]
 
+    # Listado de camas
     cursor.execute("""
-        SELECT codigo_cama, area, estado
-        FROM Camas
+        SELECT
+            c.Codigo,
+            ec.Descripcion
+        FROM Camas c
+        INNER JOIN EstadosCama ec
+            ON c.IdEstadoCama = ec.IdEstadoCama
     """)
     camas = cursor.fetchall()
 
+    # Pacientes hospitalizados (simplificado)
     cursor.execute("""
-        SELECT nombres, dni, edad, sexo, diagnostico, fecha_ingreso, estado
-        FROM Pacientes
+        SELECT
+            p.ApellidoPaterno,
+            p.ApellidoMaterno,
+            p.PrimerNombre,
+            p.NroDocumento
+        FROM Camas c
+        INNER JOIN Pacientes p
+            ON c.IdPaciente = p.IdPaciente
+        WHERE c.IdPaciente IS NOT NULL
     """)
     pacientes = cursor.fetchall()
 

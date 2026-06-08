@@ -61,8 +61,14 @@
     <h2 class="section-title">
         Evaluación del Personal
     </h2>
+    <input
+    type="text"
+    class="search-input"
+    placeholder="Buscar personal..."
+    onkeyup="filtrarTabla(this, 'tablaPersonal')"
+>
 
-    <table>
+    <table id="tablaPersonal">
 
         <thead>
             <tr>
@@ -79,19 +85,16 @@
         <tbody>
 
             {% for empleado in personal %}
-
-            <tr>
-                <td>{{ empleado.nombres }}</td>
-                <td>{{ empleado.cargo }}</td>
-                <td>{{ empleado.area }}</td>
-                <td>{{ empleado.fecha }}</td>
-                <td>{{ empleado.asistencia }}</td>
-                <td>{{ empleado.atenciones_realizadas }}</td>
-                <td>{{ empleado.cumplimiento }}</td>
-            </tr>
-
-            {% endfor %}
-
+                <tr>
+                <td>{{ empleado.Nombre }}</td>
+                <td>{{ empleado.Cargo }}</td>
+                <td>{{ empleado.Area }}</td>
+                <td>{{ empleado.Fecha }}</td>
+                <td>{{ empleado.Asistencia }}</td>
+                <td>{{ empleado.Atenciones }}</td>
+                <td>{{ empleado.Cumplimiento }}</td>
+                </tr>
+        {% endfor %}
         </tbody>
 
     </table>
@@ -106,13 +109,33 @@
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
-    const nombresPersonal = JSON.parse('{{ nombres_personal | tojson | safe }}');
-    const atencionesPersonal = JSON.parse('{{ atenciones_personal | tojson | safe }}');
+    const nombresPersonal = JSON.parse('{{ nombres_personal|tojson|safe }}');
+    const atencionesPersonal = JSON.parse('{{ atenciones_personal|tojson|safe }}');
 </script>
 
 <script src="/static/js/personal.js"></script>
-
 <script src="/static/js/app.js"></script>
+
+<script>
+function filtrarTabla(input, idTabla) {
+
+    let filtro = input.value.toLowerCase();
+    let tabla = document.getElementById(idTabla);
+    let filas = tabla.getElementsByTagName("tr");
+
+    for (let i = 1; i < filas.length; i++) {
+
+        let textoFila = filas[i].textContent.toLowerCase();
+
+        if (textoFila.includes(filtro)) {
+            filas[i].style.display = "";
+        } else {
+            filas[i].style.display = "none";
+        }
+    }
+}
+</script>
 </body>
 </html>

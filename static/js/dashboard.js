@@ -15,7 +15,7 @@ const ctxEpidemiologia = document.getElementById('graficoEpidemiologia');
 new Chart(ctxEpidemiologia, {
     type: 'bar',
     data: {
-        labels: ['Dengue', 'Anemia'],
+        labels: ['Dengue', 'Neumonía'],
         datasets: [{
             label: 'Cantidad de casos',
             data: [casosDengue, casosAnemia]

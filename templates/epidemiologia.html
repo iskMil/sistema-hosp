@@ -57,32 +57,55 @@
         {% endfor %}
     </div>
 
-    <h2 class="section-title">Listado de casos registrados</h2>
+    <h2 class="section-title">Listado de diagnósticos epidemiológicos</h2>
 
-    <table>
+    <input 
+        type="text" 
+        class="search-input" 
+        id="buscadorEpidemiologia"
+        placeholder="Buscar diagnóstico..."
+        onkeyup="filtrarEpidemiologia()"
+    >
+
+    <table id="tablaEpidemiologia">
         <thead>
             <tr>
-                <th>Enfermedad</th>
-                <th>Cantidad de casos</th>
-                <th>Área</th>
-                <th>Fecha</th>
-                <th>Observación</th>
+                <th>Diagnóstico</th>
+                <th>Total de casos</th>
             </tr>
         </thead>
+
         <tbody>
             {% for caso in casos %}
             <tr>
                 <td>{{ caso.enfermedad }}</td>
-                <td>{{ caso.cantidad_casos }}</td>
-                <td>{{ caso.area }}</td>
-                <td>{{ caso.fecha_registro }}</td>
-                <td>{{ caso.observacion }}</td>
+                <td>{{ caso.total_casos }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-
 </div>
+
+<script>
+function filtrarEpidemiologia() {
+    let input = document.getElementById("buscadorEpidemiologia");
+    let filtro = input.value.toLowerCase();
+    let tabla = document.getElementById("tablaEpidemiologia");
+    let filas = tabla.getElementsByTagName("tr");
+
+    for (let i = 1; i < filas.length; i++) {
+        let textoFila = filas[i].textContent.toLowerCase();
+
+        if (textoFila.includes(filtro)) {
+            filas[i].style.display = "";
+        } else {
+            filas[i].style.display = "none";
+        }
+    }
+}
+</script>
+
 <script src="/static/js/app.js"></script>
+
 </body>
 </html>
