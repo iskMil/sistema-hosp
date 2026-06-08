@@ -23,3 +23,11 @@ new Chart(ctxEpidemiologia, {
     }
 });
 
+
+
+
+
+
+
+
+

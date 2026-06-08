@@ -1,7 +1,5 @@
 
-/* ========================================
-ESTILOS GLOBALES Y BASE
-   ======================================== */
+/* ================ESTILOS GLOBALES Y BASE================================= */
 
 /* Reset global: Elimina márgenes y padding por defecto,
    y establece box-sizing para mejor control de dimensiones */
@@ -15,15 +13,38 @@ ESTILOS GLOBALES Y BASE
    Define la fuente predeterminada y color de fondo general */
 body {
     font-family: Arial, sans-serif;
-    background:fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    /* Mezclamos los colores en un ángulo suave */
+    background: linear-gradient(135deg, #dddbdb);
+    background-size: 300% 300%;
+    
+    /* Subimos a 45 segundos para que el vaivén sea increíblemente lento y relajante */
+    animation: respiroDashboard 45s ease infinite;
+}
+
+@keyframes respiroDashboard {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 
 
 
-/* ========================================
-ESTILOS DE LA BARRA LATERAL (SIDEBAR)
-   ======================================== */
+
+
+
+
+/* ================ESTILOS DE LA BARRA LATERAL (SIDEBAR)============================== */
 
 /* Contenedor principal de la barra lateral:
    Barra fija a la izquierda con navegación principal */
@@ -57,11 +78,7 @@ ESTILOS DE LA BARRA LATERAL (SIDEBAR)
     background: #1565c0;
 }
 
-
-
-/* ========================================
-ÁREA PRINCIPAL DE CONTENIDO
-   ======================================== */
+/* ========ÁREA PRINCIPAL DE CONTENIDO============== */
 
 /* Contenedor principal: Ajusta el margen izquierdo para dejar espacio al sidebar */
 .main {
@@ -76,14 +93,9 @@ ESTILOS DE LA BARRA LATERAL (SIDEBAR)
 /* Título principal de la página */
 h1 {
     margin-bottom: 25px;
-    color: #0b2347;
+    color: #ffffff;
 }
-
-
-/* ========================================
-ESTILOS DE TARJETAS (CARDS)
-   ======================================== */
-
+/* ============ESTILOS DE TARJETAS (CARDS)============== */
 /* Contenedor de tarjetas: Grid de 3 columnas para mostrar métricas principales */
 .cards {
     display: grid;
@@ -113,17 +125,12 @@ ESTILOS DE TARJETAS (CARDS)
     margin-top: 15px;
 }
 
-
-
-/* ========================================
-ESTILOS DE SECCIONES Y TABLAS
-   ======================================== */
-
+/* ==============ESTILOS DE SECCIONES Y TABLAS========================== */
 /* Títulos de secciones secundarias: Separa visualmente diferentes áreas de contenido */
 .section-title {
     margin-top: 35px;
     margin-bottom: 15px;
-    color: #0b2347;
+    color: #4a4750;
 }
 
 /* Tabla general: Contenedor para listados de datos */
@@ -139,7 +146,7 @@ table {
 
 /* Encabezados de tabla: Fondo oscuro y texto blanco */
 th {
-    background: #0b2347;
+    background: #1e2475c4;
     color: white;
     padding: 12px;
     text-align: left;
@@ -156,10 +163,7 @@ tr:hover {
     background: #f1f5ff;
 }
 
-
-/* ========================================
-ESTILOS DE CARGA DE ARCHIVOS (UPLOAD)
-   ======================================== */
+/* =========ESTILOS DE CARGA DE ARCHIVOS (UPLOAD)============= */
 
 /* Tarjeta de carga: Contenedor para el formulario de importación de archivos */
 .upload-card {
@@ -231,13 +235,11 @@ ESTILOS DE CARGA DE ARCHIVOS (UPLOAD)
     width: 300px;
     padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #be1313;
     border-radius: 8px;
 }
 
-/* ========================================
-ESTILOS DE GRÁFICOS (CHARTS)
-   ======================================== */
+/* ============ESTILOS DE GRÁFICOS (CHARTS)================== */
 
 /* Contenedor de gráficos: Grid de 2 columnas para mostrar múltiples gráficos */
 .charts-container {
@@ -347,13 +349,13 @@ ESTILOS DE GRÁFICOS (CHARTS)
 
 .logout-btn {
     margin-top: auto;
-    background: rgba(163, 60, 47, 0.45);
+    background: rgba(184, 69, 54, 0.171);
     color: white !important;
     text-align: center;
 }
 
 .logout-btn:hover {
-    background: #b91c1c !important;
+    background: #ce6b6b !important;
 }
 
 
@@ -410,6 +412,13 @@ ESTILOS DE GRÁFICOS (CHARTS)
     right: 10px;
     width: auto;
 }
+
+
+
+
+
+
+
 
 
 
